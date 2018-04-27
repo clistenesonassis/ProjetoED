@@ -45,8 +45,11 @@ public class Pilha {
         return topo + 1;
     }
     //consultar elemento do topo;
-    public int consultaElem(){
-        return conteudo[topo];
+    public String consultaElem(){
+        if(topo == -1)
+            return null;
+        else
+            return String.valueOf( conteudo[topo] );
     }
     
     //inserir um novo elemento no topo da lista;

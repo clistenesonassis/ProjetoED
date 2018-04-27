@@ -11,14 +11,44 @@ import java.awt.Polygon;
  */
 public class Retangulo extends Poligono {
 
-    private final int basePx = 50;
-    private final int alturaPx = 25;
-
+    private int basePx = 50;
+    private int alturaPx = 25;
+    
+    public void setBasePx(int base){
+        basePx = base;
+    }
+    
+    public void setAlturaPx(int altura){
+        alturaPx = altura;
+    }
+    
+    public void setCoordX(int x){
+        coordX = x;
+    }
+    
+    public void setCoordY(int y){
+        coordY = y;
+    }
+    
+    public void setValor(String s){
+        valor = s;
+    }
+    
+    
     @Override
     public boolean desenharCanvas(Graphics g, int a, int b) {
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
+        g.fillRect(a, b, basePx, alturaPx);
+        g.setColor(Color.RED);
         g.drawRect(a, b, basePx, alturaPx);
-        //g.fillRect(a, b, basePx, alturaPx);
+        return true;
+    }
+    
+    //para deixar em 3d;
+    public boolean desenharCanvasCima(Graphics g, int a, int b){
+        g.setColor(Color.WHITE);
+        g.fill3DRect(b, b, WIDTH, HEIGHT, true);
+        g.setColor(Color.BLACK);
         return true;
     }
 
