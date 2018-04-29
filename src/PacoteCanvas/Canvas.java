@@ -62,5 +62,24 @@ public class Canvas extends java.awt.Canvas{
             
         }
     }
+    
+    //desenhar filas varendo todo o arraylist de poligonos;
+    public void paintFila(Graphics g){
         
+        //passa o parametro para a classe pai;
+        super.paint(g);
+        
+        //vai ler todo o arraylist;
+        for(Poligono p : p){
+            
+            //desenha o retangulo na tela;
+            p.desenharCanvas(g, p.coordX, p.coordY);
+            
+            //desenha a seta na tela
+            p.desenharSetas(g, p.coordX, p.coordY + 11);
+            
+            //escreve o valor armazenado na tela;
+            p.escreverCanvas(g, p.valor, p.coordX, p.coordY);
+        }
+    }     
 }
