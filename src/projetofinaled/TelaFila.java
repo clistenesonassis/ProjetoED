@@ -14,7 +14,7 @@ public class TelaFila extends javax.swing.JFrame {
     private Canvas canvas;
     private FilaArray fila;
     private Retangulo retangulo;
-
+            
     int x, y;
 
     public TelaFila() {
@@ -147,7 +147,7 @@ public class TelaFila extends javax.swing.JFrame {
         if (fila.insereElem(Integer.parseInt(JOptionPane.showInputDialog("Valor que será enfileirado?")))) {
 
             //distancia entre os retangulos;
-            x = (x = x + 70);
+            x = (x + 70);
 
             //instanciando o retangulo e passando os atributos;
             retangulo = new Retangulo();
@@ -159,6 +159,13 @@ public class TelaFila extends javax.swing.JFrame {
 
             //adicionando retangulo no canvas;
             canvas.adicionar(retangulo);
+            
+            //adicionando retangulo de representação da fila no canvas;
+            retangulo.setValor(Integer.toString(fila.consultaElem()));
+            canvas.AddRepresentaFila(retangulo);
+            
+            //gerando o retangulo de representação da fila na tela;
+            canvas.PintaRepresentaFila(canvas.getGraphics());
 
             //gerando o retangulo na tela;
             canvas.paintFila(canvas.getGraphics());
@@ -219,12 +226,15 @@ public class TelaFila extends javax.swing.JFrame {
 
             //remove elemento da fila;
             aux = fila.removeElem();
+            
+            //ajeita o canvas;
+            canvas.RemoveFilaCanvas();
 
             //printa todos os elementos que restão na tela;
             canvas.paintFila(canvas.getGraphics());
 
             //diminui a distancia de um quadrado para outro;
-            x = (x + 30);
+            x = x - 70;
 
             //atualiza o label elemento do inicio;
             lblInicio.setText("Inicio: " + fila.consultarElem());

@@ -6,6 +6,7 @@
 package PacoteCanvas;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -15,8 +16,14 @@ import java.util.ArrayList;
  */
 public class Canvas extends java.awt.Canvas{
     
+    //ArrayList Principal;
     private ArrayList <Poligono> p = new ArrayList<>();  
-    int i=0, xAux = 70, yAux = 70;
+    
+    //ArrayList para representação da Fila;
+    private ArrayList <Poligono> pf = new ArrayList<>();
+    
+    //Variáveis;
+    int i=0, xAux = 150, yAux = 150;
     
     //adiciona um elemento a estrutura;
     public void adicionar(Poligono pon){
@@ -39,6 +46,45 @@ public class Canvas extends java.awt.Canvas{
             p.remove(indice);
         }
     }
+    
+    //remove FIlA:.
+    /**
+     * Ajeita a fila do canvas voltando a distancia entre os elementos;
+     * x = x - 70;
+     */
+    public void RemoveFilaCanvas(){
+        for(int i = 0; i < p.size(); i++){
+            p.get(i).coordX = p.get(i).coordX - 70;
+        }
+    }
+    
+    /**
+     * visualização em fila;     * 
+     */
+    public void AddRepresentaFila(Poligono pon){
+        pf.add(pon);
+    }
+    
+    /**
+     * pinta todos os retangulos de representação na tela;
+     */
+    public void PintaRepresentaFila(Graphics g){
+        for(int i = pf.size() - 1; i >= 0; i--){
+            
+            //desenha o quadrado na tela (funçao desenhaCanvas);
+            g.setColor(Color.RED);
+            g.fillRect(xAux, yAux, 100, 100);
+            xAux -= 10;
+            yAux += 10;
+            //escreve na tela; (desenha valor);
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Arial Bold", Font.BOLD, 15));
+            g.drawString("" + pf.get(i).valor, pf.get(i).coordX , pf.get(i).coordY);
+            
+        }
+    }
+    
+    
     
     //colocar a cor do painel branco;
     public Canvas(){
