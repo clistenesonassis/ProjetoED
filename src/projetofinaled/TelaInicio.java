@@ -136,7 +136,12 @@ public class TelaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListaSeqActionPerformed
 
     private void btnListaSimpEncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaSimpEncActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:   
+        //instancia um frame do tipo TelaPilha;
+        TelaLSETEste frame = new TelaLSETEste();
+        
+        //torna o frame visível;
+        frame.setVisible(true);
     }//GEN-LAST:event_btnListaSimpEncActionPerformed
 
     /**

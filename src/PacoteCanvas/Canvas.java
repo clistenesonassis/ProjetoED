@@ -83,6 +83,21 @@ public class Canvas extends java.awt.Canvas{
             
         }
     }
+    public void PintaRepresentaLSE(Graphics g){
+        for(int i = pf.size() - 1; i >= 0; i--){
+            
+            //desenha o quadrado na tela (funçao desenhaCanvas);
+            g.setColor(Color.BLACK);
+            g.fillRect(xAux, yAux, 100, 100);
+            xAux -= 10;
+            yAux += 10;
+            //escreve na tela; (desenha valor);
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Arial Bold", Font.BOLD, 15));
+            g.drawString("" + pf.get(i).valor, pf.get(i).coordX , pf.get(i).coordY);
+            
+        }
+    }
     
     
     
