@@ -174,7 +174,7 @@ public class TelaFila extends javax.swing.JFrame {
             lblTamanho.setText(String.valueOf("Tamanho: " + fila.tamanhoFila()));
 
             //printando no label o Inicio da fila;
-            lblInicio.setText(String.valueOf("Topo: " + fila.consultarElem()));
+            lblInicio.setText(String.valueOf("Inicio: " + fila.consultarElem()));
 
             //printando o label elemento removido;
             lblElemRemovido.setText("Elemento Removido: null");

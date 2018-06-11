@@ -8,7 +8,7 @@ public class FilaArray {
        
     private int conteudo[];
     private int inicio, aux = inicio;
-    private int fim, nElementos, cu = 0;
+    private int fim, nElementos, remove = 0;
 
     public void setFim(int fim) {
         this.fim = fim;
@@ -69,6 +69,6 @@ public class FilaArray {
         else
             nElementos--;
             aux++;
-            return conteudo[cu++];    //remove o elemento do inicio;
+            return conteudo[remove++];    //remove o elemento do inicio;
     }  
 }

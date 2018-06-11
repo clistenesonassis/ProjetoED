@@ -46,7 +46,7 @@ public class TelaLSETEste extends javax.swing.JFrame {
         lblInicio = new javax.swing.JLabel();
         jbCriarLSE = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jbAdicionarElemento.setText("Adicionar Elemento");
         jbAdicionarElemento.addActionListener(new java.awt.event.ActionListener() {
