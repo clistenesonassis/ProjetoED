@@ -39,7 +39,7 @@ public class Retangulo extends Poligono {
     public boolean desenharCanvas(Graphics g, int a, int b) {
         g.setColor(Color.WHITE);
         g.fillRect(a, b, basePx, alturaPx);
-        g.setColor(Color.RED);
+        g.setColor(Color.BLACK);
         g.drawRect(a, b, basePx, alturaPx);
         return true;
     }

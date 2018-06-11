@@ -163,9 +163,14 @@ public class TelaLSE extends javax.swing.JFrame {
 
     private void AdicionarLSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarLSEActionPerformed
         // TODO add your handling code here:
+        
+        //posição e valor que será adicionado;
         int pos = Integer.parseInt(JOptionPane.showInputDialog("Digite a posição"));
         int dado= Integer.parseInt(JOptionPane.showInputDialog("Digite o valor a ser adicionado a lista"));
-       if(lse.insere(pos, dado)){
+        
+        if(lse.insere(pos, dado)){
+            
+            //constroi o retangulo.
             x=(x+70);
             retangulo = new Retangulo();
             retangulo.setCoordX(x);
@@ -174,24 +179,31 @@ public class TelaLSE extends javax.swing.JFrame {
             retangulo.setBasePx(50);
             retangulo.setAlturaPx(25);
             
-            
+            //adiciona no canvas o elemento.
             canvas.adicionar(retangulo);
             
+            //Pinta no canvas o elemento.
             canvas.PintaRepresentaLSE(canvas.getGraphics());
             
-            lblTamanho.setText(String.valueOf("Tamanho: "+lse.tamanho()));
+            //Atualiza os Labels.
+            lblTamanho.setText(String.valueOf( "Tamanho: "+ lse.tamanho() ) );
             lblElemRemovido.setText("Elemento Removido: null");
-            
+            lblInicio.setText("Incio:" + lse.elemento(1));
             
         } else {
             //exibe mensagem de erro;
             JOptionPane.showMessageDialog(null, "", "Falha na inserção do Elemento", JOptionPane.ERROR_MESSAGE);
         }
-        lblInicio.setText("Incio:"+lse.posicao(lse.tamanho()));
     }//GEN-LAST:event_AdicionarLSEActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        // TODO add your handling code here:
+        
+        for (int i = 0; i < lse.tamanho(); i++) {
+            System.out.print(lse.elemento(i+1) + " ");
+        }
+        System.out.println("");
+        
+        /*
         if (!lse.vazia()) {
 
             JOptionPane.showMessageDialog(null, "Elemento:" + lse.elemento(Integer.parseInt(JOptionPane.showInputDialog("Qual a possição?"))), "CONSULTA ELEMENTO", JOptionPane.INFORMATION_MESSAGE);
@@ -200,6 +212,7 @@ public class TelaLSE extends javax.swing.JFrame {
             //exibe uma mensagem de erro se a pilha estiver vazia;
             JOptionPane.showMessageDialog(null, "A Lista está vazia ou a posição de pesquisa é invalida", "CONSULTA ELEMENTO", JOptionPane.INFORMATION_MESSAGE);
         }
+        */
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed

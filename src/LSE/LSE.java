@@ -12,17 +12,30 @@ package LSE;
 public class LSE {
 	private No cabeca;
 	private int nElementos;
-
+        
+        /**
+         * Metodo construtor.
+         */
 	public LSE(){
 		cabeca = null;
 		nElementos = 0;
 	}
+        
+        /**
+         * verifica se a lista está vazia.
+         * @return 
+         */
 	public boolean vazia() {
 	    if (nElementos == 0)
 	        return true;
 	    else
 	        return false;
 	}
+        
+        /**
+         * retorna o tamanho da lista.
+         * @return 
+         */
 	public int tamanho() {
 		No aux = cabeca;
 		int cont = 0;
@@ -32,6 +45,12 @@ public class LSE {
 		}
 		return cont;
 	}
+        
+        /**
+         * Busca o Elemento pela posição na lista.
+         * @param pos
+         * @return 
+         */
 	public int elemento (int pos) {
 	    if (vazia()) {
 	        return -1;
@@ -47,6 +66,12 @@ public class LSE {
 
 	    return aux.getConteudo();
 	}
+        
+        /**
+         * retorna a posição de determinando elemento.
+         * @param dado
+         * @return 
+         */
 	public int posicao (int dado) {
 	    int cont = 1;
 	    No aux;
@@ -64,6 +89,12 @@ public class LSE {
 
 	    return -1;
 	}
+        
+        /**
+         * Insere no meio da Lista.
+         * @param valor
+         * @return 
+         */
 	private boolean insereInicioLista(int valor) {
 	    No novoNo = new No();
 	    novoNo.setConteudo(valor);
@@ -72,6 +103,13 @@ public class LSE {
 	    nElementos++;
 	    return true;
 	}
+        
+        /**
+         * Insere no meio da Lista.
+         * @param pos
+         * @param dado
+         * @return 
+         */
 	private boolean insereMeioLista(int pos, int dado){
 	    No novoNo = new No();
 	    novoNo.setConteudo(dado);
@@ -86,6 +124,12 @@ public class LSE {
 	    nElementos++;
 	    return true;
 	}
+        
+        /**
+         * insere no final da lista.
+         * @param dado
+         * @return 
+         */
 	private boolean insereFimLista(int dado){
 	    No novoNo = new No();
 	    novoNo.setConteudo(dado);
@@ -101,11 +145,11 @@ public class LSE {
 	    return true;
 	}
 	public boolean insere(int pos, int dado) {
-		if ((vazia()) && (pos != 1)){
+            if ((vazia()) && (pos != 1)){
 	        return false; /* lista vazia mas posicao inv*/
 	    }
 
-	 	/* inserção no início da lista (ou lista vazia)*/
+            /* inserção no início da lista (ou lista vazia)*/
 	    if (pos == 1){
 	        return insereInicioLista(dado);
 	    }
@@ -158,6 +202,12 @@ public class LSE {
 	    atual = null;
 	    return dado;
 	}
+        
+        /**
+         * Remove Elemento na posição de paramentro;
+         * @param pos
+         * @return 
+         */
 	public int remove(int pos) {
 		// Lista vazia 
 	    if (vazia()) {
@@ -170,28 +220,29 @@ public class LSE {
 	        return removeNaLista(pos);
 	    }
 	}
+        
 	static class No {
-	int conteudo;
-	No prox;
-	
-	public No(){
-		setProx(null);
-	}
+            int conteudo;
+            No prox;
 
-	public int getConteudo() {
-		return conteudo;
-	}
+            public No(){
+                    setProx(null);
+            }
 
-	public void setConteudo(int conteudo) {
-		this.conteudo = conteudo;
-	}
+            public int getConteudo() {
+                    return conteudo;
+            }
 
-	public No getProx() {
-		return prox;
-	}
+            public void setConteudo(int conteudo) {
+                    this.conteudo = conteudo;
+            }
 
-	public void setProx(No prox) {
-		this.prox = prox;
-	}	
+            public No getProx() {
+                    return prox;
+            }
+
+            public void setProx(No prox) {
+                    this.prox = prox;
+            }	
 	}
 }

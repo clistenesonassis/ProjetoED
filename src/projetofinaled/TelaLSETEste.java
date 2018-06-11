@@ -22,7 +22,7 @@ public class TelaLSETEste extends javax.swing.JFrame {
      * Creates new form TelaLSETEste
      */
     public TelaLSETEste() {
-        initComponents();      initComponents();
+        initComponents();
         canvas = new Canvas();
         canvas.setBounds(HEIGHT + 300, WIDTH + 5, 700, 700);
         this.add(canvas);
@@ -112,16 +112,13 @@ public class TelaLSETEste extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbAdicionarElemento, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbCriarLSE, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbRemoverElemento, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                    .addComponent(jbBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(436, 522, Short.MAX_VALUE))
+                    .addComponent(jbCriarLSE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbAdicionarElemento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(jbRemoverElemento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(466, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,8 +140,13 @@ public class TelaLSETEste extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAdicionarElementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAdicionarElementoActionPerformed
-
-        if(lse.insere(lse.tamanho()+1, Integer.parseInt(JOptionPane.showInputDialog("Digite o valor a ser adicionado a lista")))){
+        
+        int pos = Integer.parseInt(JOptionPane.showInputDialog("Digite a posição a ser adicionado a lista"));
+        int dado = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor"));
+        
+        if(lse.insere(pos, dado)){
+            
+            //construindo o retangulo.
             x=(x+70);
             retangulo = new Retangulo();
             retangulo.setCoordX(x);
@@ -153,13 +155,11 @@ public class TelaLSETEste extends javax.swing.JFrame {
             retangulo.setBasePx(50);
             retangulo.setAlturaPx(25);
             
-            
+            //Adiciona o retangulo no canvas.
             canvas.adicionar(retangulo);
-            retangulo.setValor(Integer.toString(lse.tamanho()+1));
             
-            canvas.AddRepresentaFila(retangulo);
+            //Pinta a Lista Simmplemente encadeada.
             canvas.PintaRepresentaLSE(canvas.getGraphics());
-            canvas.paintFila(canvas.getGraphics());
             
             
             
@@ -201,6 +201,12 @@ public class TelaLSETEste extends javax.swing.JFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         //verifica se a fila está vazia;
+        
+        for (int i = 0; i < lse.tamanho(); i++) {
+            System.out.print(lse.elemento(i + 1) + " ");
+        }
+        
+        /**
         if (!lse.vazia()) {
 
             JOptionPane.showMessageDialog(null, "Elemento:" + lse.elemento(Integer.parseInt(JOptionPane.showInputDialog("Qual a possição?"))), "CONSULTA ELEMENTO", JOptionPane.INFORMATION_MESSAGE);
@@ -209,6 +215,7 @@ public class TelaLSETEste extends javax.swing.JFrame {
             //exibe uma mensagem de erro se a pilha estiver vazia;
             JOptionPane.showMessageDialog(null, "A Lista está vazia ou a posição de pesquisa é invalida", "CONSULTA ELEMENTO", JOptionPane.INFORMATION_MESSAGE);
         }
+        */
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbCriarLSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCriarLSEActionPerformed

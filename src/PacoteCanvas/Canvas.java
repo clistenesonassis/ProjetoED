@@ -59,7 +59,8 @@ public class Canvas extends java.awt.Canvas{
     }
     
     /**
-     * visualização em fila;     * 
+     * visualização em fila;
+     * @param pon 
      */
     public void AddRepresentaFila(Poligono pon){
         pf.add(pon);
@@ -76,21 +77,7 @@ public class Canvas extends java.awt.Canvas{
             g.fillRect(xAux, yAux, 100, 100);
             xAux -= 10;
             yAux += 10;
-            //escreve na tela; (desenha valor);
-            g.setColor(Color.BLACK);
-            g.setFont(new Font("Arial Bold", Font.BOLD, 15));
-            g.drawString("" + pf.get(i).valor, pf.get(i).coordX , pf.get(i).coordY);
             
-        }
-    }
-    public void PintaRepresentaLSE(Graphics g){
-        for(int i = pf.size() - 1; i >= 0; i--){
-            
-            //desenha o quadrado na tela (funçao desenhaCanvas);
-            g.setColor(Color.BLACK);
-            g.fillRect(xAux, yAux, 100, 100);
-            xAux -= 10;
-            yAux += 10;
             //escreve na tela; (desenha valor);
             g.setColor(Color.BLACK);
             g.setFont(new Font("Arial Bold", Font.BOLD, 15));
@@ -106,7 +93,10 @@ public class Canvas extends java.awt.Canvas{
         this.setBackground(Color.white);
     }
     
-    //printa na tela todos os elementos da estrutura Pilha;
+    /**
+     * printa na tela todos os elementos da estrutura Pilha;
+     * @param g
+     */
     public void paintPilha(Graphics g) {
         
         //passa o parametro para a classe pai;
@@ -124,7 +114,10 @@ public class Canvas extends java.awt.Canvas{
         }
     }
     
-    //desenhar filas varendo todo o arraylist de poligonos;
+    /**
+     * desenhar filas varendo todo o arraylist de poligonos;
+     * @param g
+     */
     public void paintFila(Graphics g){
         
         //passa o parametro para a classe pai;
@@ -143,4 +136,29 @@ public class Canvas extends java.awt.Canvas{
             p.escreverCanvas(g, p.valor, p.coordX, p.coordY);
         }
     }     
+    
+    /**
+     * Desenha no Canvas a lista Simplesente Encadeada.
+     * @param g 
+     */
+    public void PintaRepresentaLSE(Graphics g){
+        
+        //passa o parametro para a classe pai;
+        super.paint(g);
+        
+        //vai ler todo o arraylist;
+        for(Poligono p : p){
+            
+            //desenha o retangulo na tela;
+            p.desenharCanvas(g, p.coordX, p.coordY);
+            
+            //desenha a seta na tela
+            p.desenharSetas(g, p.coordX, p.coordY + 11);
+            
+            //escreve o valor armazenado na tela;
+            p.escreverCanvas(g, p.valor, p.coordX, p.coordY);
+        }
+        
+    }
+    
 }
