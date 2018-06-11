@@ -5,17 +5,30 @@
  */
 package projetofinaled;
 
+import LSE.LSE;
+import PacoteCanvas.Canvas;
+import PacoteCanvas.Retangulo;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author hellder
+ * @author aluno
  */
 public class TelaLSE extends javax.swing.JFrame {
+    private Canvas canvas;
+    private LSE lse;
+    private Retangulo retangulo;
+    int x, y;
 
     /**
      * Creates new form TelaLSE
      */
     public TelaLSE() {
         initComponents();
+        canvas = new Canvas();
+        canvas.setBounds(HEIGHT + 300, WIDTH + 5, 700, 700);
+        this.add(canvas);  
+        
     }
 
     /**
@@ -27,21 +40,189 @@ public class TelaLSE extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        CriarLSE = new javax.swing.JButton();
+        AdicionarLSE = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
+        remover = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblTamanho = new javax.swing.JLabel();
+        lblInicio = new javax.swing.JLabel();
+        lblElemRemovido = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        CriarLSE.setText("Criar LSE");
+        CriarLSE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CriarLSEActionPerformed(evt);
+            }
+        });
+
+        AdicionarLSE.setText("Adicionar na Lista");
+        AdicionarLSE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdicionarLSEActionPerformed(evt);
+            }
+        });
+
+        Buscar.setText("Buscar na Lista");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+
+        remover.setText("Remover da Lista");
+        remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removerActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações da LSE"));
+
+        lblTamanho.setText("Tamanho:");
+
+        lblInicio.setText("Inicio:");
+
+        lblElemRemovido.setText("Elemento Removido:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTamanho)
+                    .addComponent(lblElemRemovido)
+                    .addComponent(lblInicio))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(lblTamanho)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblInicio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblElemRemovido)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(remover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AdicionarLSE, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(CriarLSE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 556, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CriarLSE, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AdicionarLSE, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(remover, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CriarLSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CriarLSEActionPerformed
+        // TODO add your handling code here:
+        if(canvas.Tamanho()==0){
+            lse = new LSE();
+            lblTamanho.setText("Tamanho: "+lse.tamanho());
+            lblInicio.setText("Inicio: null");
+            lblElemRemovido.setText("Elemento Removido: null");
+            x=0;
+            y=50;
+            retangulo = new Retangulo();
+            
+            
+        } else {
+            //exibe uma mensagem de erro;
+            JOptionPane.showMessageDialog(null, "Uma estrutura já foi criada. Remova todos os elementos"
+                + " da estrutura para criar outra !", "Criar outra Lista", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_CriarLSEActionPerformed
+
+    private void AdicionarLSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarLSEActionPerformed
+        // TODO add your handling code here:
+        int pos = Integer.parseInt(JOptionPane.showInputDialog("Digite a posição"));
+        int dado= Integer.parseInt(JOptionPane.showInputDialog("Digite o valor a ser adicionado a lista"));
+       if(lse.insere(pos, dado)){
+            x=(x+70);
+            retangulo = new Retangulo();
+            retangulo.setCoordX(x);
+            retangulo.setCoordY(y);
+            retangulo.setValor(Integer.toString(lse.elemento(pos)));
+            retangulo.setBasePx(50);
+            retangulo.setAlturaPx(25);
+            
+            
+            canvas.adicionar(retangulo);
+            
+            canvas.PintaRepresentaLSE(canvas.getGraphics());
+            
+            lblTamanho.setText(String.valueOf("Tamanho: "+lse.tamanho()));
+            lblElemRemovido.setText("Elemento Removido: null");
+            
+            
+        } else {
+            //exibe mensagem de erro;
+            JOptionPane.showMessageDialog(null, "", "Falha na inserção do Elemento", JOptionPane.ERROR_MESSAGE);
+        }
+        lblInicio.setText("Incio:"+lse.posicao(lse.tamanho()));
+    }//GEN-LAST:event_AdicionarLSEActionPerformed
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+        if (!lse.vazia()) {
+
+            JOptionPane.showMessageDialog(null, "Elemento:" + lse.elemento(Integer.parseInt(JOptionPane.showInputDialog("Qual a possição?"))), "CONSULTA ELEMENTO", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+
+            //exibe uma mensagem de erro se a pilha estiver vazia;
+            JOptionPane.showMessageDialog(null, "A Lista está vazia ou a posição de pesquisa é invalida", "CONSULTA ELEMENTO", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_BuscarActionPerformed
+
+    private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
+        // TODO add your handling code here:
+        if(!lse.vazia()){
+            int aux,re=Integer.parseInt(JOptionPane.showInputDialog("Qual a possição a ser removida?"));
+            aux= lse.remove(re);
+            canvas.remover(lse.remove(re));
+            canvas.RemoveFilaCanvas();
+//            canvas.paintFila(canvas.getGraphics());
+            x = x -70;
+   
+//            lblInicio.setText("Inicio: " + lse.elemento(aux));
+
+ 
+//            lblTamanho.setText("Tamanho: " + lse.tamanho());
+
+//            lblElemRemovido.setText("Elemento Removido: " + aux);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Posição invalida ou lista vazia.", "ERRO AO REMOVER ELEMENTO", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_removerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +260,13 @@ public class TelaLSE extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AdicionarLSE;
+    private javax.swing.JButton Buscar;
+    private javax.swing.JButton CriarLSE;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblElemRemovido;
+    private javax.swing.JLabel lblInicio;
+    private javax.swing.JLabel lblTamanho;
+    private javax.swing.JButton remover;
     // End of variables declaration//GEN-END:variables
 }
