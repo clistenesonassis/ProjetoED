@@ -30,32 +30,166 @@ public class Canvas extends java.awt.Canvas{
         p.add(pon);
     }
     
-    //recupera elemento em determinada posição;
+    /**
+     * adiciona um elemento a estrutura;
+     * @param pon
+     * @return 
+     */
+    public boolean adicionarLSEnoInicio(Poligono pon){
+        
+        //caso em que ainda nao existe elementos.
+        if(p.isEmpty()){
+            p.add(pon);
+            return true;
+        }else{
+            pon.coordX = p.get(0).coordX;
+            pon.coordY = p.get(0).coordY;
+            
+            //adiciona o elemento no inicio;
+            p.add(0, pon);
+            
+            //adiciona todos os elementos em um arraylist auxiliar;
+            for(int i = 1; i < p.size(); i++){
+                p.get(i).coordX = p.get(i).coordX + 70;
+            }
+            return true;                
+        }
+    }
+    
+    /**
+     * Adiciona o elemento no meio da lista.
+     * @param pon 
+     * @param index 
+     */
+    public void adicionarLSEnoMeio(Poligono pon, int pos){
+        
+        //insere o elemento no indice correto.
+        pon.coordX = p.get(pos - 1).coordX;
+        pon.coordY = p.get(pos - 1).coordY;
+        p.add(pos - 1, pon);
+        
+        //move os elementos para a direita.
+        for (int i = pos; i < p.size(); i++) {
+            p.get(i).coordX = p.get(i).coordX + 70;
+        }
+    }
+    
+    /**
+     * adiciona elemento na lista.
+     * @param pon 
+     */
+    public boolean adicionarLSE(Poligono pon, int pos){
+        
+        //se a lista estiver vazia e o indice for diferente que 1;
+        if(p.isEmpty() && pos != 1){
+            return false;
+        }
+        
+        //se o indice for igual a 1 adiciona no inicio da lista;
+        else if(pos == 1){
+            adicionarLSEnoInicio(pon);
+            return true;
+        }
+        
+        //se o indice for igual ao tamanho da lista mais um adiciona no final da lista;
+        else if(pos == p.size() + 1){
+            p.add(pon);
+            return true;
+        }
+        else{
+            adicionarLSEnoMeio(pon, pos);
+            return true;
+        }
+        
+    }
+    
+    /**
+     * recupera elemento em determinada posição;
+     * @param pos
+     * @return 
+     */
     public Poligono getPoligono(int pos){
         return p.get(pos);
     }    
     
-    //retorna a quantidade de elementos da estrutura;
+    /**
+     * retorna a quantidade de elementos da estrutura;
+     * @return 
+     */
     public int Tamanho(){
         return p.size();
     }
     
-    //remove o elemento da estrutura;
+    /**
+     * remove o elemento da estrutura;
+     * @param indice
+     */
     public void remover(int indice){
         if(indice < p.size()){
             p.remove(indice);
         }
     }
     
-    //remove FIlA:.
     /**
-     * Ajeita a fila do canvas voltando a distancia entre os elementos;
-     * x = x - 70;
+     * Remove o Elemento da Fila e Ajeita a distancia entre os elementos.
+     * (x = x - 70).
      */
-    public void RemoveFilaCanvas(){
+    public void removeNoInicioDaFilaCanvas(){
+        
+        //remove o primeiro elemento;
+        remover(0);
+        
+        //move todos os elementos;
         for(int i = 0; i < p.size(); i++){
             p.get(i).coordX = p.get(i).coordX - 70;
         }
+    }
+    
+    /**
+     * Remove o Elemento no meio da fila.
+     */
+    public int removerNoMeioDaFilaCanvas(int pos){
+        
+        //guarda o valor do elemento que será removido.
+        int aux = Integer.parseInt(p.get(pos - 1).valor);
+        
+        //move os elementos para a esquerda.
+        for (int i = pos; i < p.size(); i++) {
+            p.get(i).coordX = p.get(i).coordX - 70;
+        }
+        
+        //remove o elemento.
+        p.remove(pos - 1);
+        return aux;
+        
+    }
+    
+    
+    public int removeLSE(int pos){
+        
+        if(p.isEmpty()){              //se estiver vazio nao faz nada.
+            return -1;
+        }
+        else if(pos == p.size()){     //remove o ultimo elemento.
+            p.remove(pos - 1);
+            return -1;
+        }
+        else if(pos == 1){            //remove o primeiro elemento.
+            removeNoInicioDaFilaCanvas();
+        }
+        else{                         //remove o elemento do indice.
+            removerNoMeioDaFilaCanvas(pos);
+        }
+        
+        return -1;
+    }
+    
+    /**
+     * remove o primeiro elemento.
+     * ESTRUTURA: FILA.
+     */
+    public void RemoveFilaCanvas(){
+        removeNoInicioDaFilaCanvas();
     }
     
     /**
@@ -66,13 +200,19 @@ public class Canvas extends java.awt.Canvas{
         pf.add(pon);
     }
     
+    public void buscaEmLista(int pos, Graphics g){
+        p.get(pos - 1).desenharCanvasColor(g, p.get(pos - 1).coordX, p.get(pos - 1).coordY, Color.RED);
+        p.get(pos - 1).escreverCanvas(g, p.get(pos - 1).valor, p.get(pos - 1).coordX, p.get(pos - 1).coordY);
+    }
+    
+    
     /**
-     * pinta todos os retangulos de representação na tela;
+     * pinta todos os retangulos de representação na tela.
      */
     public void PintaRepresentaFila(Graphics g){
         for(int i = pf.size() - 1; i >= 0; i--){
             
-            //desenha o quadrado na tela (funçao desenhaCanvas);
+            //desenha o quadrado na tela (funçao desenhaCanvas).
             g.setColor(Color.RED);
             g.fillRect(xAux, yAux, 100, 100);
             xAux -= 10;

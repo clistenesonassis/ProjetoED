@@ -60,7 +60,7 @@ public class LSE {
 	        return -1;
 	    }
 	    No aux = cabeca;
-	    for (int i =1; i < pos; i++){ 
+	    for (int i = 1; i < pos; i++){ 
 	        aux = aux.getProx();
 	    }
 

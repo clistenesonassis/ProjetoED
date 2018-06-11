@@ -44,6 +44,14 @@ public class Retangulo extends Poligono {
         return true;
     }
     
+    public boolean desenharCanvasColor(Graphics g, int a, int b, Color cor) {
+        g.setColor(cor);
+        g.fillRect(a, b, basePx, alturaPx);
+        g.setColor(Color.BLACK);
+        g.drawRect(a, b, basePx, alturaPx);
+        return true;
+    }
+    
     //para deixar em 3d;
     public boolean desenharCanvasCima(Graphics g, int a, int b){
         g.setColor(Color.WHITE);

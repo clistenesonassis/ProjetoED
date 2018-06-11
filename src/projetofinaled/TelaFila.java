@@ -220,14 +220,11 @@ public class TelaFila extends javax.swing.JFrame {
         if (!fila.vazio()) {
             //criando uma variavel para armazenar o elemento removido;
             int aux;
-
-            //remove elemento do canvas
-            canvas.remover(fila.getInicio());
-
+            
             //remove elemento da fila;
             aux = fila.removeElem();
             
-            //ajeita o canvas;
+            //remove elemento do canvas;
             canvas.RemoveFilaCanvas();
 
             //printa todos os elementos que restão na tela;

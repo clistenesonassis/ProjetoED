@@ -1,5 +1,6 @@
 package PacoteCanvas;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.io.Serializable;
 import javax.swing.JPanel;
@@ -20,6 +21,8 @@ public abstract class Poligono extends JPanel implements Serializable{
     public abstract String corPoligono();
     
     public abstract boolean desenharCanvas(Graphics g, int a, int b);
+    
+    public abstract boolean desenharCanvasColor(Graphics g, int a, int b, Color cor);
 
     public abstract boolean escreverCanvas(Graphics g, String valor, int x, int y);
     

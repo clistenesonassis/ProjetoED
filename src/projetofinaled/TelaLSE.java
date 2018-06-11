@@ -26,7 +26,7 @@ public class TelaLSE extends javax.swing.JFrame {
     public TelaLSE() {
         initComponents();
         canvas = new Canvas();
-        canvas.setBounds(HEIGHT + 300, WIDTH + 5, 700, 700);
+        canvas.setBounds(HEIGHT + 200, WIDTH + 5, 1100, 400);
         this.add(canvas);  
         
     }
@@ -180,7 +180,7 @@ public class TelaLSE extends javax.swing.JFrame {
             retangulo.setAlturaPx(25);
             
             //adiciona no canvas o elemento.
-            canvas.adicionar(retangulo);
+            canvas.adicionarLSE(retangulo, pos);
             
             //Pinta no canvas o elemento.
             canvas.PintaRepresentaLSE(canvas.getGraphics());
@@ -198,39 +198,48 @@ public class TelaLSE extends javax.swing.JFrame {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         
-        for (int i = 0; i < lse.tamanho(); i++) {
-            System.out.print(lse.elemento(i+1) + " ");
-        }
-        System.out.println("");
-        
-        /*
         if (!lse.vazia()) {
-
-            JOptionPane.showMessageDialog(null, "Elemento:" + lse.elemento(Integer.parseInt(JOptionPane.showInputDialog("Qual a possição?"))), "CONSULTA ELEMENTO", JOptionPane.INFORMATION_MESSAGE);
+            
+            //recebe a posição do elemento.
+            int pos = Integer.parseInt( JOptionPane.showInputDialog("Digite a posição do Elemento:"));
+            
+            //Limpa os elementos em vermelho.
+            canvas.PintaRepresentaLSE(canvas.getGraphics());
+            
+            //busca no canvas o elemento.
+            canvas.buscaEmLista(pos, canvas.getGraphics());
+            
+            JOptionPane.showMessageDialog(null, "Elemento:" + lse.elemento(pos), "CONSULTA ELEMENTO", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
             //exibe uma mensagem de erro se a pilha estiver vazia;
             JOptionPane.showMessageDialog(null, "A Lista está vazia ou a posição de pesquisa é invalida", "CONSULTA ELEMENTO", JOptionPane.INFORMATION_MESSAGE);
         }
-        */
+        
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
         // TODO add your handling code here:
         if(!lse.vazia()){
-            int aux,re=Integer.parseInt(JOptionPane.showInputDialog("Qual a possição a ser removida?"));
-            aux= lse.remove(re);
-            canvas.remover(lse.remove(re));
-            canvas.RemoveFilaCanvas();
-//            canvas.paintFila(canvas.getGraphics());
-            x = x -70;
+            int aux;
+            int pos = Integer.parseInt(JOptionPane.showInputDialog("Qual a possição a ser removida?"));
+            
+            //remove elemento da lista.
+            aux = lse.remove(pos);
+            
+            //remove o elemento do canvas.
+            canvas.removeLSE(pos);
+            
+            //pinta elemento na tela.
+            canvas.paintFila(canvas.getGraphics());
+            
+            //decrementa a posição do retangulo.
+            x = x - 70;
    
-//            lblInicio.setText("Inicio: " + lse.elemento(aux));
-
- 
-//            lblTamanho.setText("Tamanho: " + lse.tamanho());
-
-//            lblElemRemovido.setText("Elemento Removido: " + aux);
+            //Atualizando os Labels.
+            lblInicio.setText("Inicio: " + lse.elemento(1));
+            lblTamanho.setText("Tamanho: " + lse.tamanho());
+            lblElemRemovido.setText("Elemento Removido: " + aux);
 
         } else {
             JOptionPane.showMessageDialog(null, "Posição invalida ou lista vazia.", "ERRO AO REMOVER ELEMENTO", JOptionPane.ERROR_MESSAGE);
