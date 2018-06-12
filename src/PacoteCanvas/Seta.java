@@ -1,6 +1,7 @@
 
 package PacoteCanvas;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
@@ -41,6 +42,16 @@ public class Seta extends Poligono {
 
     @Override
     public boolean desenharSetas(Graphics g, int x, int y) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean desenharCirculo(Graphics g, int x) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean desenharCanvasColor(Graphics g, int coordX, int coordY, Color RED) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -301,4 +301,23 @@ public class Canvas extends java.awt.Canvas{
         
     }
     
+    public void paintArvBin(Graphics g){
+        
+        //passa o parametro para a classe pai;
+        super.paint(g);
+        
+        //vai ler todo o arraylist;
+        for(Poligono p : p){
+            
+            //desenha o circulo na tela;
+            p.desenharCirculo(g, p.coordX);
+            
+            //desenha a seta na tela
+            //p.desenharSetas(g, p.coordX, p.coordY + 11);
+            
+            //escreve o valor armazenado na tela;
+            p.escreverCanvas(g, p.valor, p.coordX, p.coordY);
+        }
+    }
+    
 }

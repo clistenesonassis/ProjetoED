@@ -37,10 +37,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,9 +64,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnPilhaSeq" max="32767" attributes="0"/>
-                      <Component id="btnFilaEnc" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnArvBin" alignment="1" max="32767" attributes="0"/>
                       <Component id="btnListaSeq" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnListaSimpEnc" alignment="1" pref="255" max="32767" attributes="0"/>
+                      <Component id="btnFilaEnc1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -82,8 +83,9 @@
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="btnPilhaSeq" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="btnFilaEnc" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Component id="btnFilaEnc1" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Component id="btnArvBin" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -113,12 +115,20 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPilhaSeqActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnFilaEnc">
+        <Component class="javax.swing.JButton" name="btnArvBin">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Arvore Binaria"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnArvBinActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnFilaEnc1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fila Encadeada"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFilaEncActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFilaEnc1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -27,7 +27,8 @@ public class TelaInicio extends javax.swing.JFrame {
         btnListaSeq = new javax.swing.JButton();
         btnListaSimpEnc = new javax.swing.JButton();
         btnPilhaSeq = new javax.swing.JButton();
-        btnFilaEnc = new javax.swing.JButton();
+        btnArvBin = new javax.swing.JButton();
+        btnFilaEnc1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Estrutura de Dados");
@@ -57,10 +58,17 @@ public class TelaInicio extends javax.swing.JFrame {
             }
         });
 
-        btnFilaEnc.setText("Fila Encadeada");
-        btnFilaEnc.addActionListener(new java.awt.event.ActionListener() {
+        btnArvBin.setText("Arvore Binaria");
+        btnArvBin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFilaEncActionPerformed(evt);
+                btnArvBinActionPerformed(evt);
+            }
+        });
+
+        btnFilaEnc1.setText("Fila Encadeada");
+        btnFilaEnc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFilaEnc1ActionPerformed(evt);
             }
         });
 
@@ -72,9 +80,10 @@ public class TelaInicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPilhaSeq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFilaEnc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnArvBin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnListaSeq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnListaSimpEnc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
+                    .addComponent(btnListaSimpEnc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                    .addComponent(btnFilaEnc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -87,8 +96,9 @@ public class TelaInicio extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(btnPilhaSeq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(btnFilaEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addComponent(btnFilaEnc1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(btnArvBin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,10 +112,10 @@ public class TelaInicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -122,14 +132,14 @@ public class TelaInicio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnPilhaSeqActionPerformed
 
-    private void btnFilaEncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilaEncActionPerformed
+    private void btnArvBinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArvBinActionPerformed
 
         //instancia um frame do tipo TelaPilha;
-        TelaFila frame = new TelaFila();
+        TelaArvBin frame = new TelaArvBin();
         
         //torna o frame visível;
         frame.setVisible(true);
-    }//GEN-LAST:event_btnFilaEncActionPerformed
+    }//GEN-LAST:event_btnArvBinActionPerformed
 
     private void btnListaSeqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaSeqActionPerformed
         // TODO add your handling code here:
@@ -143,6 +153,10 @@ public class TelaInicio extends javax.swing.JFrame {
         //torna o frame visível;
         frame.setVisible(true);
     }//GEN-LAST:event_btnListaSimpEncActionPerformed
+
+    private void btnFilaEnc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilaEnc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFilaEnc1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +185,8 @@ public class TelaInicio extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -181,7 +197,8 @@ public class TelaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFilaEnc;
+    private javax.swing.JButton btnArvBin;
+    private javax.swing.JButton btnFilaEnc1;
     private javax.swing.JButton btnListaSeq;
     private javax.swing.JButton btnListaSimpEnc;
     private javax.swing.JButton btnPilhaSeq;

@@ -91,4 +91,9 @@ public class Retangulo extends Poligono {
         g.fillPolygon(p);
         return false;
     }
+
+    @Override
+    public boolean desenharCirculo(Graphics g, int x) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
