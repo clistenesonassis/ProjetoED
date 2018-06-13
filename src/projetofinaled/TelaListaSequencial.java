@@ -255,6 +255,10 @@ public class TelaListaSequencial extends javax.swing.JFrame {
                     retangulo.setValor(String.valueOf(elem));
                     retangulo.setId(pos);
                     canvas.adicionar(retangulo);
+                    
+                    if(canvas.p.size() >= listaSequencial.tamanhoTotal()){
+                        cFim = true;
+                    }
 
                     canvas.ajustarInserir(canvas.getGraphics(), pos, listaSequencial.tamanhoTotal(), dif);
                     
