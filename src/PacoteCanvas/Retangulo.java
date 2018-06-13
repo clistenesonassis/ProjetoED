@@ -34,6 +34,10 @@ public class Retangulo extends Poligono {
         valor = s;
     }
     
+    public void setId(int i){
+        id = i;
+    }
+    
     
     @Override
     public boolean desenharCanvas(Graphics g, int a, int b) {

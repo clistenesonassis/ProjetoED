@@ -13,8 +13,9 @@ public abstract class Poligono extends JPanel implements Serializable{
 
     protected int coordX;
     protected int coordY;
-    protected String valor;
+    public String valor;
     protected String cor;
+    public int id;
 
     public abstract int[][] centroDoPoligono();
     

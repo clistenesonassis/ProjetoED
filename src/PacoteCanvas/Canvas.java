@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *283
@@ -17,10 +18,10 @@ import java.util.ArrayList;
 public class Canvas extends java.awt.Canvas{
     
     //ArrayList Principal;
-    private ArrayList <Poligono> p = new ArrayList<>();  
+    public ArrayList<Poligono> p = new ArrayList<>();  
     
     //ArrayList para representação da Fila;
-    private ArrayList <Poligono> pf = new ArrayList<>();
+    public ArrayList <Poligono> pf = new ArrayList<>();
     
     //Variáveis;
     int i=0, xAux = 150, yAux = 150;
@@ -319,5 +320,99 @@ public class Canvas extends java.awt.Canvas{
             p.escreverCanvas(g, p.valor, p.coordX, p.coordY);
         }
     }
+    
+    //printa na tela todos os elementos da estrutura Lista Sequencial;
+    public void paintListaSequencial(Graphics g) {
+        super.paint(g);
+        for(Poligono p : p){
+            p.desenharCanvas(g, p.coordX, p.coordY);
+            p.escreverCanvas(g, p.valor, p.coordX, p.coordY);
+        }
+    }
+
+    public int procurarElementoLS(Graphics g, int pos, int tamanho){
+        int cont = 0;
+        while(true){
+            int v = 0;
+            for(int j = 0; j < tamanho ;j++){
+                try {
+                    if(p.get(j).id == pos+cont){
+                        v++;
+                        cont++;
+
+                    }
+                } catch (Exception e) {
+
+                }
+                
+            }
+            if(v  == 0){
+                break;
+            }
+            
+        }
+        return cont;
+        
+    }
+    
+    public void ajustarInserir(Graphics g, int pos, int tamanho, int dif) {
+        super.paint(g);
+        int cont = 0;
+        while(dif != 0){
+            for(Poligono p : p){
+                if(p.id == pos + cont && dif > 0){
+                    
+                   p.id = p.id + 1;
+                   
+                   p.coordX = 70 * ( p.id - 1 );     
+                    
+                   cont ++;
+                   dif--;
+
+                }
+            }
+
+        }        
+    }
+    
+    public boolean ajustarRemover(Graphics g, int pos, int tamanho, int dif) {
+        super.paint(g);
+        int cont = 0;
+        while(dif != 0){
+            for(Poligono p : p){
+                if(p.id == pos + cont && dif > 0){
+                    if(cont == 0){
+                        p.id = -1;
+                        
+                    }else{
+                        p.id -= 1;
+                        p.coordX = 70 * (p.id - 1); 
+                        
+                    }
+                   
+                    cont ++;
+                    dif--;
+                    
+
+                }
+
+            }
+        }
+            
+        
+        for(int i = 0; i < tamanho;i++){
+            try{
+                if(p.get(i).id == -1){
+                    remover(i);
+                    return true;                    
+                }
+            }catch(Exception  e){
+                    
+            }
+        }
+        
+                return false;
+        }
+    
     
 }
