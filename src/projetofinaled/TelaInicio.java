@@ -143,6 +143,10 @@ public class TelaInicio extends javax.swing.JFrame {
 
     private void btnListaSeqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaSeqActionPerformed
         // TODO add your handling code here:
+        
+        TelaListaSequencial frame = new TelaListaSequencial();
+        
+        frame.setVisible(true);
     }//GEN-LAST:event_btnListaSeqActionPerformed
 
     private void btnListaSimpEncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaSimpEncActionPerformed
